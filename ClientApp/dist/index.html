@@ -1,0 +1,64 @@
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js">
+  import axios from "axios";
+</script>
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js">
+  import axios from "axios";
+</script>
+
+<div id="app">{{ message }}</div>
+<form :action="creteOrder" method="post">
+    <label>Order Date</label>
+    <input type="date" name="name" value="" />
+    <label>Name</label>
+    <input type="text" name="name" value="" />
+    <label>Prowide</label>
+    <select>
+        <option value="value">text</option>
+    </select>
+    <input type="submit" nname="CreateOrder" value="CreateOrder" />
+</form>
+
+<button>buton</button>
+
+<script type="module">
+  import { createApp } from "vue";
+
+  createApp({
+    data() {
+      return {
+        message: "Hello Vue!",
+      };
+    },
+      methods: {
+          creteOrder()
+          {
+              console.log("Create");
+
+          },
+      get() {
+        console.log("Hello2");
+        axios
+          .get(`https://localhost:5001/api/Provide/`
+          )
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
+    },
+
+    created() {
+     
+      this.get();
+    }
+  }).mount("#app");
+</script>
